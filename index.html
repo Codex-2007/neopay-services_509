@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+  
+  
+
+  <title>Untitled</title>
+
+    <link rel="canonical" href="https://codepen.io/Ernst-Israel/pen/WbxeEXJ">
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html lang="ht">
+<head>
+  <link rel="shorcut icon" href="https://i.ibb.co/prsDLhnm/logo.png" title="Neopay services"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sèvis Neopay</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+img{
+  object-fit: cover;
+}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2575fc;
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #eee;
+    }
+
+    .header h1 {
+      color: #6a11cb;
+      margin-bottom: 10px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .service {
+      background: linear-gradient(145deg, #ffffff, #f0f0f0);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e0e0e0;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+
+    .service h3 {
+      color: #2575fc;
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+
+    .service img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      cursor: pointer;
+      height: 180px;
+      object-fit: cover;
+      border: 2px solid #e0e0e0;
+    }
+
+    .button {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(106, 17, 203, 0.4);
+    }
+
+    .details {
+      display: none;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px dashed #ddd;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .details p {
+      margin: 10px 0;
+      padding: 8px;
+      background-color: #f8f9fa;
+      border-radius: 6px;
+      border-left: 4px solid #6a11cb;
+    }
+
+    .download-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .video-section {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      margin: 40px 0;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .video-section h3 {
+      color: #6a11cb;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo-container img {
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border: 5px solid white;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <!-- Remplacez LOGO.jpg par votre logo -->
+        <img src="https://i.ibb.co/prsDLhnm/logo.png" alt="Logo Neopay" width="150" />
+      </div>
+      <h1>sèvis Neopay</h1>
+      <p>Pase kòmand ou fè fas ak pi bon sèvis nan men nou</p>
+    </div>
+
+    <div class="download-section">
+      <a href="app-apk-6816e946c77d3-1746331974.apk" download>
+        <button style="padding: 15px 30px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border: none; border-radius: 10px; font-size: 18px; cursor: pointer; font-weight: bold; box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);">
+          📥 Telechaje Aplikasyon Neopay
+        </button>
+      </a>
+    </div>
+
+    <div class="video-section">
+      <h3>Gade videyo esplikasyon an:</h3>
+      <iframe width="360" height="215"
+        src="https://www.youtube.com/embed/FEWt-BCmxNg"
+        title="Videyo Esplikasyon Neopay"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h2>Sèvis Nou Yo</h2>
+    <div class="services-grid">
+      <!-- Free Fire -->
+      <div class="service">
+        <h3>TopUp Free Fire</h3>
+        <img src="https://i.ibb.co/0jjD9L1b/freefire.jpg" alt="Free Fire" />
+        <button class="button" onclick="toggleDetails('freefire')">Voir</button>
+        <div id="freefire" class="details">
+          <p>100 dyaman - 148 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20100%20dyaman%20Free%20Fire%20ki%20koute%20148%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 100</a><br>
+          <p>110 dyaman - 165 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20110%20dyaman%20Free%20Fire%20ki%20koute%20155%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 110</a><br>
+          <p>210 dyaman - 330 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20210%20dyaman%20Free%20Fire%20ki%20koute%20296%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 210</a><br>
+          <p>220 dyaman - 310 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20220%20dyaman%20Free%20Fire%20ki%20koute%20310%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 220</a><br>
+          <p>310 dyaman - 444 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20310%20dyaman%20Free%20Fire%20ki%20koute%20444%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 310</a><br>
+          <p>341 dyaman - 465 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20341%20dyaman%20Free%20Fire%20ki%20koute%20465%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 341</a><br>
+          <p>420 dyaman - 577 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20420%20dyaman%20Free%20Fire%20ki%20koute%20577%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 420</a><br>
+          <p>451 dyaman - 620 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20451%20dyaman%20Free%20Fire%20ki%20koute%20620%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 451</a><br>
+          <p>530 dyaman - 740 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20530%20dyaman%20Free%20Fire%20ki%20koute%20740%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 530</a><br>
+          <p>572 dyaman - 775 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20572%20dyaman%20Free%20Fire%20ki%20koute%20775%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 572</a><br>
+          <p>630 dyaman - 888 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20630%20dyaman%20Free%20Fire%20ki%20koute%20888%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 630</a><br>
+          <p>682 dyaman - 930 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20682%20dyaman%20Free%20Fire%20ki%20koute%20930%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 682</a><br>
+          <p>740 dyaman - 1036 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20740%20dyaman%20Free%20Fire%20ki%20koute%201036%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 740</a><br>
+          <p>792 dyaman - 1085 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20792%20dyaman%20Free%20Fire%20ki%20koute%201085%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 792</a><br>
+          <p>913 dyaman - 1240 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20913%20dyaman%20Free%20Fire%20ki%20koute%201240%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 913</a><br>
+          <p>950 dyaman - 1317 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20950%20dyaman%20Free%20Fire%20ki%20koute%201317%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 950</a><br>
+          <p>1023 dyaman - 1395 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201023%20dyaman%20Free%20Fire%20ki%20koute%201395%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1023</a><br>
+          <p>1060 dyaman - 1480 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201060%20dyaman%20Free%20Fire%20ki%20koute%201480%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1060</a><br>
+          <p>1080 dyaman - 1524 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201080%20dyaman%20Free%20Fire%20ki%20koute%201524%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1080</a><br>
+          <p>1166 dyaman - 1550 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201166%20dyaman%20Free%20Fire%20ki%20koute%201550%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1166</a><br>
+          <p>1180 dyaman - 1672 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201180%20dyaman%20Free%20Fire%20ki%20koute%201672%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1180</a><br>
+          <p>1276 dyaman - 1705 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201276%20dyaman%20Free%20Fire%20ki%20koute%201705%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1276</a><br>
+          <p>1390 dyaman - 1968 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201390%20dyaman%20Free%20Fire%20ki%20koute%201968%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1390</a><br>
+          <p>1507 dyaman - 2015 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201507%20dyaman%20Free%20Fire%20ki%20koute%202015%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1507</a><br>
+          <p>1610 dyaman - 2264 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201610%20dyaman%20Free%20Fire%20ki%20koute%202264%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1610</a><br>
+          <p>1738 dyaman - 2325 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201738%20dyaman%20Free%20Fire%20ki%20koute%202325%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1738</a><br>
+          <p>1820 dyaman - 2560 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201820%20dyaman%20Free%20Fire%20ki%20koute%202560%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1820</a><br>
+          <p>1958 dyaman - 2635 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201958%20dyaman%20Free%20Fire%20ki%20koute%202635%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1958</a><br>
+          <p>2200 dyaman - 2960 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202200%20dyaman%20Free%20Fire%20ki%20koute%202960%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2200</a><br>
+          <p>2398 dyaman - 3100 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202398%20dyaman%20Free%20Fire%20ki%20koute%203100%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2398</a><br>
+          <p>2510 dyaman - 3404 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202510%20dyaman%20Free%20Fire%20ki%20koute%203404%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2510</a><br>
+          <p>2730 dyaman - 3700 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202730%20dyaman%20Free%20Fire%20ki%20koute%203700%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2730</a><br>
+          <p>2970 dyaman - 3875 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202970%20dyaman%20Free%20Fire%20ki%20koute%203875%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2970</a><br>
+          <p>3190 dyaman - 4185 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203190%20dyaman%20Free%20Fire%20ki%20koute%204185%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3190</a><br>
+          <p>3280 dyaman - 4484 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203280%20dyaman%20Free%20Fire%20ki%20koute%204484%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3280</a><br>
+          <p>3590 dyaman - 4928 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203590%20dyaman%20Free%20Fire%20ki%20koute%204928%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3590</a><br>
+          <p>4020 dyaman - 5520 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%204020%20dyaman%20Free%20Fire%20ki%20koute%205520%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 4020</a><br>
+          <p>4400 dyaman - 5920 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%204400%20dyaman%20Free%20Fire%20ki%20koute%205920%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 4400</a><br>
+          <p>5480 dyaman - 7044 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%205480%20dyaman%20Free%20Fire%20ki%20koute%207044%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 5480</a><br>
+          <p>6010 dyaman - 8184 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%206010%20dyaman%20Free%20Fire%20ki%20koute%208184%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 6010</a><br>
+          <p>Weekly plan - 296 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20plan%20semenn%20Free%20Fire%20ki%20koute%20296%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan semenn</a><br>
+          <p>Monthly plan - 1524 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20plan%20mwa%20Free%20Fire%20ki%20koute%201524%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan mwa</a><br>
+          <p>Level up pass - 800 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20levelup%20pass%20Free%20Fire%20ki%20koute%20800%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Level up pass</a><br>
+          
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Netflix -->
+      <div class="service">
+        <h3>Netflix</h3>
+        <img src="https://i.ibb.co/SwRggM90/netflix.jpg" alt="Netflix" />
+        <button class="button" onclick="toggleDetails('netflix')">Voir</button>
+        <div id="netflix" class="details">
+          <p>1 Jou - 25 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201%20jou%20Netflix%2024hr%20ki%20koute%2025%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan 1 jou</a><br>
+          <p>1 Mwa - 500 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201%20mwa%20Netflix%203ojou%20ki%20koute%20500%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan Mwa</a><br>
+          <p>Plan VIP - 700 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201%20plan%20VIP%20NETFLIX%20ki%20koute%20700%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan VIP</a><br>
+          <p>1 Mwa + 22 Jou (5 ekran) - 2700 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201%20plan%201Mwa%2022jou%20ki%20koute%202700%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan 1Mwa 22jou</a><br>
+          <p>2 Mwa + 15 Jou (5 ekran) - 4000 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201%20plan%202Mwa%2015jou%20ki%20koute%204000%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan 2Mwa 15jou</a><br>
+          
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- MasterCard Wise -->
+      <div class="service">
+        <h3>MasterCard Virtual Wise</h3>
+        <img src="https://i.ibb.co/67Cb6Lf9/wise.jpg" alt="MasterCard Wise" />
+        <button class="button" onclick="toggleDetails('wise')">Voir</button>
+        <div id="wise" class="details">
+          <p>Kreyasyon: 2500 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle kreeye MasterCard Wise mwen we prix a 1500gdes" target="_blank">Komande sevis kreyasyon an</a>
+          <p>Rechaj: 165 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle rechaje MasterCard Wise mwen we taux a 160gdes banm moncash ou natcash ou" target="_blank">Kòmande sevis rechaj la</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- MasterCard Fyatu -->
+      <div class="service">
+        <h3>MasterCard Fyatu</h3>
+        <img src="https://i.ibb.co/5xFZzrKt/fyatu.jpg" alt="MasterCard Fyatu" />
+        <button class="button" onclick="toggleDetails('fyatu')">Voir</button>
+        <div id="fyatu" class="details">
+          <p>Kreyasyon: 2500 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle kreeye MasterCard Fyatu mwen we prix a 1000gdes" target="_blank">Komande sevis kreyasyon an</a>
+          <p>Rechaj: 148 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle rechaje MasterCard Fyatu mwen we taux a 148gdes banm moncash ou natcash ou" target="_blank">Kòmande sevis rechaj la</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- PayPal -->
+      <div class="service">
+        <h3>PayPal</h3>
+        <img src="https://i.ibb.co/VXKhmZP/paypal.png" alt="PayPal" />
+        <button class="button" onclick="toggleDetails('paypal')">Voir</button>
+        <div id="paypal" class="details">
+          <p>Kreyasyon: 2500 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle kreeye yon kont paypal mwen we prix a 1500gdes" target="_blank">Komande sevis kreyasyon an</a>
+          <p>Rechaj: 165 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle rechaje kont paypal mwen we taux a 165gdes banm moncash ou natcash ou" target="_blank">Kòmande sevis rechaj la</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Gift Card -->
+      <div class="service">
+        <h3>Gift Card Apple / Google</h3>
+        <img src="https://i.ibb.co/jvMCfjVL/google.jpg" alt="Giftcard" />
+        <button class="button" onclick="toggleDetails('giftcard')">Voir</button>
+        <div id="giftcard" class="details">
+          <p>Gift Card Apple ak Google disponib. Pri yo varye a 160 GDES / USD.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle achte Gift Card" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- SheIn -->
+      <div class="service">
+        <h3>Acha sou SheIn</h3>
+        <img src="https://i.ibb.co/qFDxG5P4/shein.jpg" alt="SheIn" />
+        <button class="button" onclick="toggleDetails('shein')">Voir</button>
+        <div id="shein" class="details">
+          <p>Mwen peye pou ou sou SheIn si ou pa gen kat.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis SheIn" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Echanj Goud -->
+      <div class="service">
+        <h3>Echanj Goud (MonCash & NatCash)</h3>
+        <img src="https://i.ibb.co/43VNMFL/moncash.png" alt="Echanj Goud" />
+        <a class="button" href="tarif.html" target="_blank">Voir Tarif</a>
+        <div id="echang" class="details">
+          <p>Ou ban mwen MonCash, mwen ban ou NatCash ak frè 10 GDES + frè retrè.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle fè echanj Goud" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Vant Krypto -->
+      <div class="service">
+        <h3>Vant Krypto</h3>
+        <img src="https://i.ibb.co/24bL7jM/crypto.jpg" alt="Crypto" />
+        <button class="button" onclick="toggleDetails('crypto')">Voir</button>
+        <div id="crypto" class="details">
+          <p>Mwen vann tout kalite kripto. Taux: 148 GDES / USD</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle achte kripto" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://wa.me/50944813185?text=Mwen vle sèvis boostage youtube" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Boostage Facebook -->
+      <div class="service">
+        <h3>Boostage Facebook</h3>
+        <img src="https://i.ibb.co/9mt4T2mv/facebook.jpg" alt="Facebook" />
+        <a class="button" href="boostagefb.html" target="_blank">Voir</a>
+        <div id="facebook" class="details">
+          <p>Mwen booste paj Facebook pou 200 GDES pa jou.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage facebook" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://wa.me/50944813185?text=Mwen vle sèvis boostage Facebook" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Boostage Instagram -->
+      <div class="service">
+        <h3>Boostage Instagram</h3>
+        <img src="https://i.ibb.co/TMZ2M2P5/instagram.png" alt="Instagram" />
+        <a class="button" href="boostageig.html" target="_blank">Voir</a>
+        <div id="instagram" class="details">
+          <p>Mwen booste Instagram pou 200gdes pa jou.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage Instagram" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Boostage Tiktok -->
+      <div class="service">
+        <h3>Boostage tiktok</h3>
+        <img src="https://i.ibb.co/mVhsyd0X/tiktok.png" alt="Tiktok" />
+        <a class="button" href="boostagetik.html" target="_blank">Voir</a>
+        <div id="tiktok" class="details">
+          <p>Mwen booste paj Tiktok pou 200gdes pa jou.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage tiktok" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://wa.me/50944813185?text=Mwen vle sèvis boostage tiktok" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Boostage Youtube -->
+      <div class="service">
+        <h3>Boostage Youtube</h3>
+        <img src="https://i.ibb.co/SDyrLksf/youtube.png" alt="Youtube" />
+        <button class="button" onclick="toggleDetails('youtube')">Voir</button>
+        <div id="youtube" class="details">
+          <p>Mwen booste paj Youtube pou 300gdes pa jou.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage youtube" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://wa.me/50944813185?text=Mwen vle sèvis boostage youtube" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Playstation Store -->
+      <div class="service">
+        <h3>Playstation Store</h3>
+        <img src="https://i.ibb.co/HLZqY63v/playstation.jpg" alt="Playstation" />
+        <button class="button" onclick="toggleDetails('playstation')">Voir</button>
+        <div id="playstation" class="details">
+          <p>Code de portefeuille Playstation dispo pour tous regions.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis Playstation lan" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Amazon Giftcard -->
+      <div class="service">
+        <h3>Amazon Giftcard</h3>
+        <img src="https://i.ibb.co/q3DFrBLr/amazon.png" alt="amazon" />
+        <button class="button" onclick="toggleDetails('amazon')">Voir</button>
+        <div id="amazon" class="details">
+          <p>Code de portefeuille Amazon dispo pour tous regions.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis Amazon Giftcard" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+
+      <!-- Steam -->
+      <div class="service">
+        <h3>Steam</h3>
+        <img src="https://i.ibb.co/zVQB4T5G/steam.jpg" alt="steam" />
+        <button class="button" onclick="toggleDetails('steam')">Voir</button>
+        <div id="steam" class="details">
+          <p>Code de portefeuille Steam dispo pour tous regions.</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis Steam" target="_blank">Kòmande</a>
+          <br>
+          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+
+    document.querySelectorAll(".service img").forEach((img) => {
+      img.addEventListener("click", function () {
+        const serviceDiv = img.parentElement;
+        const detailsDiv = serviceDiv.querySelector(".details");
+        if (detailsDiv) {
+          const id = detailsDiv.id;
+          toggleDetails(id);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+  
+  
+  
+</body>
+
+</html>
