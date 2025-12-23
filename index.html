@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  
-  
-  
-
-  <title>Untitled</title>
-
-    <link rel="canonical" href="https://codepen.io/Ernst-Israel/pen/WbxeEXJ">
-</head>
-
-<body>
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="ht">
 <head>
   <link rel="shorcut icon" href="https://i.ibb.co/prsDLhnm/logo.png" title="Neopay services"/>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>sèvis Neopay</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#6a11cb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/prsDLhnm/logo.png">
+  
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -144,7 +137,7 @@ img{
     }
 
     .video-section {
-      display: none;
+      display: none; /* Caché pour l'instant */
       flex-direction: column;
       text-align: center;
       margin: 40px 0;
@@ -177,6 +170,40 @@ img{
       border: 5px solid white;
     }
 
+    /* Style pour liens désactivés */
+    .disabled-link {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+      color: #666;
+      text-decoration: line-through;
+    }
+
+    /* Notification PWA */
+    .pwa-notification {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .pwa-notification button {
+      background: #6a11cb;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
       .container {
         padding: 15px;
@@ -196,7 +223,6 @@ img{
   <div class="container">
     <div class="header">
       <div class="logo-container">
-        <!-- Remplacez LOGO.jpg par votre logo -->
         <img src="https://i.ibb.co/prsDLhnm/logo.png" alt="Logo Neopay" width="150" />
       </div>
       <h1>sèvis Neopay</h1>
@@ -204,22 +230,12 @@ img{
     </div>
 
     <div class="download-section">
-      <a href="app-apk-6816e946c77d3-1746331974.apk" download>
-        <button style="padding: 15px 30px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border: none; border-radius: 10px; font-size: 18px; cursor: pointer; font-weight: bold; box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);">
-          📥 Telechaje Aplikasyon Neopay
-        </button>
-      </a>
-    </div>
-
-    <div class="video-section">
-      <h3>Gade videyo esplikasyon an:</h3>
-      <iframe width="360" height="215"
-        src="https://www.youtube.com/embed/FEWt-BCmxNg"
-        title="Videyo Esplikasyon Neopay"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <button id="installBtn" style="padding: 15px 30px; background: linear-gradient(to right, #6a11cb, #2575fc); color: white; border: none; border-radius: 10px; font-size: 18px; cursor: pointer; font-weight: bold; box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);">
+        📥 Telechaje Aplikasyon Neopay (Web App)
+      </button>
+      <p style="margin-top: 10px; font-size: 14px; color: #666;">
+        Klike pou enstale aplikasyon sou telefòn ou (PWA)
+      </p>
     </div>
 
     <h2>Sèvis Nou Yo</h2>
@@ -230,95 +246,95 @@ img{
         <img src="https://i.ibb.co/0jjD9L1b/freefire.jpg" alt="Free Fire" />
         <button class="button" onclick="toggleDetails('freefire')">Voir</button>
         <div id="freefire" class="details">
-          <p>100 dyaman - 148 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20100%20dyaman%20Free%20Fire%20ki%20koute%20148%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 100</a><br>
-          <p>110 dyaman - 165 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20110%20dyaman%20Free%20Fire%20ki%20koute%20155%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 110</a><br>
-          <p>210 dyaman - 330 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20210%20dyaman%20Free%20Fire%20ki%20koute%20296%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 210</a><br>
-          <p>220 dyaman - 310 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20220%20dyaman%20Free%20Fire%20ki%20koute%20310%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 220</a><br>
-          <p>310 dyaman - 444 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20310%20dyaman%20Free%20Fire%20ki%20koute%20444%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 310</a><br>
-          <p>341 dyaman - 465 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20341%20dyaman%20Free%20Fire%20ki%20koute%20465%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 341</a><br>
-          <p>420 dyaman - 577 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20420%20dyaman%20Free%20Fire%20ki%20koute%20577%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 420</a><br>
-          <p>451 dyaman - 620 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20451%20dyaman%20Free%20Fire%20ki%20koute%20620%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 451</a><br>
-          <p>530 dyaman - 740 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20530%20dyaman%20Free%20Fire%20ki%20koute%20740%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 530</a><br>
-          <p>572 dyaman - 775 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20572%20dyaman%20Free%20Fire%20ki%20koute%20775%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 572</a><br>
-          <p>630 dyaman - 888 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20630%20dyaman%20Free%20Fire%20ki%20koute%20888%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 630</a><br>
-          <p>682 dyaman - 930 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20682%20dyaman%20Free%20Fire%20ki%20koute%20930%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 682</a><br>
-          <p>740 dyaman - 1036 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20740%20dyaman%20Free%20Fire%20ki%20koute%201036%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 740</a><br>
-          <p>792 dyaman - 1085 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20792%20dyaman%20Free%20Fire%20ki%20koute%201085%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 792</a><br>
-          <p>913 dyaman - 1240 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20913%20dyaman%20Free%20Fire%20ki%20koute%201240%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 913</a><br>
-          <p>950 dyaman - 1317 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20950%20dyaman%20Free%20Fire%20ki%20koute%201317%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 950</a><br>
-          <p>1023 dyaman - 1395 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201023%20dyaman%20Free%20Fire%20ki%20koute%201395%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1023</a><br>
-          <p>1060 dyaman - 1480 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201060%20dyaman%20Free%20Fire%20ki%20koute%201480%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1060</a><br>
-          <p>1080 dyaman - 1524 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201080%20dyaman%20Free%20Fire%20ki%20koute%201524%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1080</a><br>
-          <p>1166 dyaman - 1550 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201166%20dyaman%20Free%20Fire%20ki%20koute%201550%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1166</a><br>
-          <p>1180 dyaman - 1672 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201180%20dyaman%20Free%20Fire%20ki%20koute%201672%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1180</a><br>
-          <p>1276 dyaman - 1705 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201276%20dyaman%20Free%20Fire%20ki%20koute%201705%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1276</a><br>
-          <p>1390 dyaman - 1968 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201390%20dyaman%20Free%20Fire%20ki%20koute%201968%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1390</a><br>
-          <p>1507 dyaman - 2015 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201507%20dyaman%20Free%20Fire%20ki%20koute%202015%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1507</a><br>
-          <p>1610 dyaman - 2264 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201610%20dyaman%20Free%20Fire%20ki%20koute%202264%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1610</a><br>
-          <p>1738 dyaman - 2325 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201738%20dyaman%20Free%20Fire%20ki%20koute%202325%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1738</a><br>
-          <p>1820 dyaman - 2560 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201820%20dyaman%20Free%20Fire%20ki%20koute%202560%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1820</a><br>
-          <p>1958 dyaman - 2635 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201958%20dyaman%20Free%20Fire%20ki%20koute%202635%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1958</a><br>
-          <p>2200 dyaman - 2960 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202200%20dyaman%20Free%20Fire%20ki%20koute%202960%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2200</a><br>
-          <p>2398 dyaman - 3100 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202398%20dyaman%20Free%20Fire%20ki%20koute%203100%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2398</a><br>
-          <p>2510 dyaman - 3404 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202510%20dyaman%20Free%20Fire%20ki%20koute%203404%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2510</a><br>
-          <p>2730 dyaman - 3700 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202730%20dyaman%20Free%20Fire%20ki%20koute%203700%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2730</a><br>
-          <p>2970 dyaman - 3875 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202970%20dyaman%20Free%20Fire%20ki%20koute%203875%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2970</a><br>
-          <p>3190 dyaman - 4185 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203190%20dyaman%20Free%20Fire%20ki%20koute%204185%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3190</a><br>
-          <p>3280 dyaman - 4484 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203280%20dyaman%20Free%20Fire%20ki%20koute%204484%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3280</a><br>
-          <p>3590 dyaman - 4928 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203590%20dyaman%20Free%20Fire%20ki%20koute%204928%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3590</a><br>
-          <p>4020 dyaman - 5520 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%204020%20dyaman%20Free%20Fire%20ki%20koute%205520%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 4020</a><br>
-          <p>4400 dyaman - 5920 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%204400%20dyaman%20Free%20Fire%20ki%20koute%205920%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 4400</a><br>
-          <p>5480 dyaman - 7044 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%205480%20dyaman%20Free%20Fire%20ki%20koute%207044%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 5480</a><br>
-          <p>6010 dyaman - 8184 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%206010%20dyaman%20Free%20Fire%20ki%20koute%208184%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 6010</a><br>
-          <p>Weekly plan - 296 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20plan%20semenn%20Free%20Fire%20ki%20koute%20296%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan semenn</a><br>
-          <p>Monthly plan - 1524 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20plan%20mwa%20Free%20Fire%20ki%20koute%201524%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan mwa</a><br>
-          <p>Level up pass - 800 GDES</p>
-          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20levelup%20pass%20Free%20Fire%20ki%20koute%20800%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Level up pass</a><br>
+          <p>100 diamants - 145 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20100%20dyaman%20Free%20Fire%20ki%20koute%20145%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 100</a><br>
+          <p>110 diamants - 160 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20110%20dyaman%20Free%20Fire%20ki%20koute%20160%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 110</a><br>
+          <p>210 diamants - 305 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20210%20dyaman%20Free%20Fire%20ki%20koute%20305%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 210</a><br>
+          <p>220 diamants - 320 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20220%20dyaman%20Free%20Fire%20ki%20koute%20320%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 220</a><br>
+          <p>310 diamants - 451 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20310%20dyaman%20Free%20Fire%20ki%20koute%20451%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 310</a><br>
+          <p>341 diamants - 496 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20341%20dyaman%20Free%20Fire%20ki%20koute%20496%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 341</a><br>
+          <p>420 diamants - 611 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20420%20dyaman%20Free%20Fire%20ki%20koute%20611%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 420</a><br>
+          <p>451 diamants - 656 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20451%20dyaman%20Free%20Fire%20ki%20koute%20656%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 451</a><br>
+          <p>530 diamants - 771 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20530%20dyaman%20Free%20Fire%20ki%20koute%20771%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 530</a><br>
+          <p>572 diamants - 832 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20572%20dyaman%20Free%20Fire%20ki%20koute%20832%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 572</a><br>
+          <p>630 diamants - 916 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20630%20dyaman%20Free%20Fire%20ki%20koute%20916%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 630</a><br>
+          <p>682 diamants - 992 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20682%20dyaman%20Free%20Fire%20ki%20koute%20992%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 682</a><br>
+          <p>740 diamants - 1076 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20740%20dyaman%20Free%20Fire%20ki%20koute%201076%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 740</a><br>
+          <p>792 diamants - 1152 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20792%20dyaman%20Free%20Fire%20ki%20koute%201152%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 792</a><br>
+          <p>913 diamants - 1328 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20913%20dyaman%20Free%20Fire%20ki%20koute%201328%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 913</a><br>
+          <p>950 diamants - 1382 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20950%20dyaman%20Free%20Fire%20ki%20koute%201382%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 950</a><br>
+          <p>1023 diamants - 1488 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201023%20dyaman%20Free%20Fire%20ki%20koute%201488%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1023</a><br>
+          <p>1060 diamants - 1542 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201060%20dyaman%20Free%20Fire%20ki%20koute%201542%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1060</a><br>
+          <p>1080 diamants - 1571 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201080%20dyaman%20Free%20Fire%20ki%20koute%201571%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1080</a><br>
+          <p>1166 diamants - 1696 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201166%20dyaman%20Free%20Fire%20ki%20koute%201696%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1166</a><br>
+          <p>1180 diamants - 1716 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201180%20dyaman%20Free%20Fire%20ki%20koute%201716%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1180</a><br>
+          <p>1276 diamants - 1856 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201276%20dyaman%20Free%20Fire%20ki%20koute%201856%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1276</a><br>
+          <p>1390 diamants - 2022 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201390%20dyaman%20Free%20Fire%20ki%20koute%202022%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1390</a><br>
+          <p>1507 diamants - 2192 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201507%20dyaman%20Free%20Fire%20ki%20koute%202192%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1507</a><br>
+          <p>1610 diamants - 2342 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201610%20dyaman%20Free%20Fire%20ki%20koute%202342%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1610</a><br>
+          <p>1738 diamants - 2528 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201738%20dyaman%20Free%20Fire%20ki%20koute%202528%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1738</a><br>
+          <p>1820 diamants - 2648 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201820%20dyaman%20Free%20Fire%20ki%20koute%202648%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1820</a><br>
+          <p>1958 diamants - 2848 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201958%20dyaman%20Free%20Fire%20ki%20koute%202848%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 1958</a><br>
+          <p>2200 diamants - 3200 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202200%20dyaman%20Free%20Fire%20ki%20koute%203200%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2200</a><br>
+          <p>2398 diamants - 3488 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202398%20dyaman%20Free%20Fire%20ki%20koute%203488%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2398</a><br>
+          <p>2510 diamants - 3651 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202510%20dyaman%20Free%20Fire%20ki%20koute%203651%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2510</a><br>
+          <p>2730 diamants - 3971 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202730%20dyaman%20Free%20Fire%20ki%20koute%203971%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2730</a><br>
+          <p>2970 diamants - 4320 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%202970%20dyaman%20Free%20Fire%20ki%20koute%204320%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 2970</a><br>
+          <p>3190 diamants - 4640 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203190%20dyaman%20Free%20Fire%20ki%20koute%204640%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3190</a><br>
+          <p>3280 diamants - 4771 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203280%20dyaman%20Free%20Fire%20ki%20koute%204771%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3280</a><br>
+          <p>3590 diamants - 5222 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%203590%20dyaman%20Free%20Fire%20ki%20koute%205222%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 3590</a><br>
+          <p>4020 diamants - 5847 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%204020%20dyaman%20Free%20Fire%20ki%20koute%205847%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 4020</a><br>
+          <p>4400 diamants - 6400 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%204400%20dyaman%20Free%20Fire%20ki%20koute%206400%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 4400</a><br>
+          <p>5480 diamants - 7971 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%205480%20dyaman%20Free%20Fire%20ki%20koute%207971%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 5480</a><br>
+          <p>6010 diamants - 8742 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%206010%20dyaman%20Free%20Fire%20ki%20koute%208742%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande 6010</a><br>
+          <p>Weekly plan - 320 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20plan%20semenn%20Free%20Fire%20ki%20koute%20320%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan semenn</a><br>
+          <p>Monthly plan - 1658 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20plan%20mwa%20Free%20Fire%20ki%20koute%201658%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan mwa</a><br>
+          <p>Level up pass - 872 GDES</p>
+          <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%20levelup%20pass%20Free%20Fire%20ki%20koute%20872%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Level up pass</a><br>
           
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -340,7 +356,7 @@ img{
           <a class="button" href="https://wa.me/50944813185?text=Mwen%20vle%20achte%201%20plan%202Mwa%2015jou%20ki%20koute%204000%20GDES.%20Voye%20MonCash%20ou%20NatCash%20pou%20m%20peye%20tanpri." target="_blank">Kòmande Plan 2Mwa 15jou</a><br>
           
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -355,7 +371,7 @@ img{
           <p>Rechaj: 165 GDES</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle rechaje MasterCard Wise mwen we taux a 160gdes banm moncash ou natcash ou" target="_blank">Kòmande sevis rechaj la</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -370,7 +386,7 @@ img{
           <p>Rechaj: 148 GDES</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle rechaje MasterCard Fyatu mwen we taux a 148gdes banm moncash ou natcash ou" target="_blank">Kòmande sevis rechaj la</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -385,7 +401,7 @@ img{
           <p>Rechaj: 165 GDES</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle rechaje kont paypal mwen we taux a 165gdes banm moncash ou natcash ou" target="_blank">Kòmande sevis rechaj la</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -398,7 +414,7 @@ img{
           <p>Gift Card Apple ak Google disponib. Pri yo varye a 160 GDES / USD.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle achte Gift Card" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -411,7 +427,7 @@ img{
           <p>Mwen peye pou ou sou SheIn si ou pa gen kat.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis SheIn" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -419,12 +435,12 @@ img{
       <div class="service">
         <h3>Echanj Goud (MonCash & NatCash)</h3>
         <img src="https://i.ibb.co/43VNMFL/moncash.png" alt="Echanj Goud" />
-        <a class="button" href="tarif.html" target="_blank">Voir Tarif</a>
+        <a class="button" href="javascript:void(0)" class="disabled-link">Voir Tarif (byento)</a>
         <div id="echang" class="details">
           <p>Ou ban mwen MonCash, mwen ban ou NatCash ak frè 10 GDES + frè retrè.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle fè echanj Goud" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -445,7 +461,7 @@ img{
       <div class="service">
         <h3>Boostage Facebook</h3>
         <img src="https://i.ibb.co/9mt4T2mv/facebook.jpg" alt="Facebook" />
-        <a class="button" href="boostagefb.html" target="_blank">Voir</a>
+        <a class="button" href="javascript:void(0)" class="disabled-link">Voir (byento)</a>
         <div id="facebook" class="details">
           <p>Mwen booste paj Facebook pou 200 GDES pa jou.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage facebook" target="_blank">Kòmande</a>
@@ -458,12 +474,12 @@ img{
       <div class="service">
         <h3>Boostage Instagram</h3>
         <img src="https://i.ibb.co/TMZ2M2P5/instagram.png" alt="Instagram" />
-        <a class="button" href="boostageig.html" target="_blank">Voir</a>
+        <a class="button" href="javascript:void(0)" class="disabled-link">Voir (byento)</a>
         <div id="instagram" class="details">
           <p>Mwen booste Instagram pou 200gdes pa jou.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage Instagram" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -471,7 +487,7 @@ img{
       <div class="service">
         <h3>Boostage tiktok</h3>
         <img src="https://i.ibb.co/mVhsyd0X/tiktok.png" alt="Tiktok" />
-        <a class="button" href="boostagetik.html" target="_blank">Voir</a>
+        <a class="button" href="javascript:void(0)" class="disabled-link">Voir (byento)</a>
         <div id="tiktok" class="details">
           <p>Mwen booste paj Tiktok pou 200gdes pa jou.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis boostage tiktok" target="_blank">Kòmande</a>
@@ -502,7 +518,7 @@ img{
           <p>Code de portefeuille Playstation dispo pour tous regions.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis Playstation lan" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -515,7 +531,7 @@ img{
           <p>Code de portefeuille Amazon dispo pour tous regions.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis Amazon Giftcard" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
 
@@ -528,10 +544,17 @@ img{
           <p>Code de portefeuille Steam dispo pour tous regions.</p>
           <a class="button" href="https://wa.me/50944813185?text=Mwen vle sèvis Steam" target="_blank">Kòmande</a>
           <br>
-          <a href="https://vm.tiktok.com/ZMBwcGxVu/" target="_blank">Plis Info</a>
+          <a href="javascript:void(0)" class="disabled-link">Plis Info (byento)</a>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Notification PWA -->
+  <div id="pwaNotification" class="pwa-notification">
+    <p>📱 Vle enstale aplikasyon Neopay sou telefòn ou?</p>
+    <button onclick="installPWA()">Enstale</button>
+    <button onclick="closeNotification()">Fèmen</button>
   </div>
 
   <script>
@@ -550,12 +573,81 @@ img{
         }
       });
     });
+
+    // JavaScript PWA
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+    const pwaNotification = document.getElementById('pwaNotification');
+
+    // Détecter l'événement "beforeinstallprompt"
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      
+      // Montrer le bouton d'installation
+      installBtn.style.display = 'block';
+      
+      // Montrer notification après 5 secondes
+      setTimeout(() => {
+        if (!isAppInstalled()) {
+          pwaNotification.style.display = 'block';
+        }
+      }, 5000);
+    });
+
+    // Fonction pour installer PWA
+    function installPWA() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Utilisateur a installé l\'app');
+          } else {
+            console.log('Utilisateur a refusé l\'installation');
+          }
+          deferredPrompt = null;
+        });
+      }
+      closeNotification();
+    }
+
+    // Fonction pour vérifier si l'app est déjà installée
+    function isAppInstalled() {
+      return window.matchMedia('(display-mode: standalone)').matches || 
+             window.navigator.standalone === true;
+    }
+
+    // Fonction pour fermer la notification
+    function closeNotification() {
+      pwaNotification.style.display = 'none';
+    }
+
+    // Gestion du bouton d'installation
+    installBtn.addEventListener('click', () => {
+      if (deferredPrompt) {
+        installPWA();
+      } else {
+        // Si déjà installé ou pas supporté
+        if (isAppInstalled()) {
+          alert('Aplikasyon an deja enstale sou aparèy ou! 📱');
+        } else {
+          // Instructions pour installation manuelle
+          alert('📱 Pou enstale aplikasyon an:\n\n' +
+                '1. Ouvi Chrome/Edge/Safari\n' +
+                '2. Klike sou menu (...)\n' +
+                '3. Chwazi "Ajoute sou ekran dakèy"\n' +
+                '4. Klike "Ajoute"');
+        }
+      }
+    });
+
+    // JavaScript de calcul automatique (optionnel)
+    function calculatePrice(diamonds) {
+      const pricePerDiamond = 160 / 110;
+      const price = diamonds * pricePerDiamond;
+      return Math.round(price);
+    }
   </script>
 </body>
-</html>
-  
-  
-  
-</body>
-
-</html>
+</html>                          
